@@ -39,13 +39,14 @@ There are more things in heaven and earth, Horatio, than are dreamt.
 """
 # Standard Library
 import sys
+import types
 from typing import Any, Tuple, Optional
 
 # Other Packages
 from IPython.core.interactiveshell import InteractiveShell
 
 try:
-    import better_exceptions as better_exceptions
+    import better_exceptions
 except ImportError:
     print("pip install better_exceptions in need.")
     better_exceptions = None
@@ -56,18 +57,31 @@ def load_ipython_extension(ip: InteractiveShell) -> None:
     old_show_tb = ip.showtraceback
 
     def exception_thunk(
+        self,
         exc_tuple: Tuple[Any, ...] = tuple(),
         filename: Optional[str] = None,
         tb_offset: Optional[int] = None,
         exception_only: bool = False,
         **kwargs: Any
-    ) -> None:
-        "Formatted exception function."
-        new_exc_tuple = exc_tuple or sys.exc_info()
-        if not isinstance(new_exc_tuple[0], SyntaxError):
-            return print(better_exceptions.format_exception(*new_exc_tuple))
-        else:
-            return old_show_tb(exc_tuple, filename, tb_offset, exception_only)
+    ):
+        notuple = False
+        if exc_tuple is None:
+            notuple = True
+            exc_tuple = sys.exc_info()
+        etype, value, tb = self._get_exc_info(exc_tuple)
+        use_better = not any(
+            [filename, tb_offset, exception_only, issubclass(etype, SyntaxError)]
+        )
+        if use_better:
+            return better_exceptions.excepthook(etype, value, tb)
+
+        return old_show_tb(
+            None if notuple else exc_tuple,
+            filename,
+            tb_offset,
+            exception_only,
+            **kwargs
+        )
 
     if better_exceptions:
-        ip.showtraceback = exception_thunk
+        ip.showtraceback = types.MethodType(exception_thunk, ip)
