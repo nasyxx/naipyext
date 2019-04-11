@@ -58,7 +58,7 @@ def load_ipython_extension(ip: InteractiveShell) -> None:
 
     def exception_thunk(
         self,
-        exc_tuple: Tuple[Any, ...] = tuple(),
+        exc_tuple: Tuple[Any, ...] = None,
         filename: Optional[str] = None,
         tb_offset: Optional[int] = None,
         exception_only: bool = False,
@@ -73,7 +73,7 @@ def load_ipython_extension(ip: InteractiveShell) -> None:
             [filename, tb_offset, exception_only, issubclass(etype, SyntaxError)]
         )
         if use_better:
-            return better_exceptions.excepthook(etype, value, tb)
+            return print(better_exceptions.format_exception(etype, value, tb))
 
         return old_show_tb(
             None if notuple else exc_tuple,
@@ -83,5 +83,4 @@ def load_ipython_extension(ip: InteractiveShell) -> None:
             **kwargs
         )
 
-    if better_exceptions:
-        ip.showtraceback = types.MethodType(exception_thunk, ip)
+    ip.showtraceback = types.MethodType(exception_thunk, ip)
