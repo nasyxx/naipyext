@@ -509,7 +509,7 @@ testing = ["docopt", "pytest (>=3.0.7)"]
 category = "main"
 description = "Python datetimes made easy"
 name = "pendulum"
-optional = true
+optional = false
 python-versions = ">=2.7, !=3.0.*, !=3.1.*, !=3.2.*, !=3.3.*"
 version = "2.0.4"
 
@@ -627,7 +627,7 @@ six = "*"
 category = "main"
 description = "Extensions to the standard Python datetime module"
 name = "python-dateutil"
-optional = true
+optional = false
 python-versions = ">=2.7, !=3.0.*, !=3.1.*, !=3.2.*"
 version = "2.8.0"
 
@@ -646,7 +646,7 @@ version = "2019.1"
 category = "main"
 description = "The Olson timezone database for Python."
 name = "pytzdata"
-optional = true
+optional = false
 python-versions = ">=2.7, !=3.0.*, !=3.1.*, !=3.2.*, !=3.3.*"
 version = "2019.1"
 
@@ -880,10 +880,10 @@ test = ["nose", "mock"]
 [extras]
 all = ["numpy", "jupyter", "sympy", "pandas", "pendulum", "tqdm", "bs4", "requests", "requests_html"]
 math = ["numpy", "jupyter", "sympy", "pandas"]
-others = ["pendulum", "tqdm", "bs4", "requests", "requests_html"]
+others = ["tqdm", "bs4", "requests", "requests_html"]
 
 [metadata]
-content-hash = "f880569aac51411a01e28d87fd00afa3267cacaa4d3935c2926b3a3816adc07c"
+content-hash = "b436f1e3b29087a84e31505ff4d2745e7c8a49ac0e701409dcdc86d43958417e"
 python-versions = "^3.6"
 
 [metadata.hashes]
