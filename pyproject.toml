@@ -1,6 +1,6 @@
 [tool.poetry]
 name = "naipyext"
-version = "0.2.1"
+version = "0.3.0"
 description = "Nasy IPython Extensions."
 authors = ["Nasy <nasyxx+python@gmail.com>"]
 license = "GPL-3.0+"
