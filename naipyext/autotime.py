@@ -61,7 +61,8 @@ class Timer:
         perf = time.perf_counter() - self.perf
         cput = time.process_time() - self.cput
         if perf and cput and (perf > 1e-2 or cput > 1e-2):
-            print("Performance:", dt(perf).in_words(), "| Process:", dt(cput).in_words()
+            print("Performance:", dt(perf).in_words())
+            print("Process:", dt(cput).in_words())
 
 timer = Timer()
 
