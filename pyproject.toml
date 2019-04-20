@@ -1,6 +1,6 @@
 [tool.poetry]
 name = "naipyext"
-version = "0.3.2"
+version = "0.3.3"
 description = "Nasy IPython Extensions."
 authors = ["Nasy <nasyxx+python@gmail.com>"]
 license = "GPL-3.0+"
@@ -23,12 +23,12 @@ pandas = {version = "^0.23.4",optional = true}
 tqdm = {version = "^4.28",optional = true}
 bs4 = {version = "^0.0.1",optional = true}
 jupyter_qtconsole_colorschemes = {version = "^0.8.1",optional = true}
-pdir2 = {version = "^0.3.1",optional = true,extras = ["others"]}
+pdir2 = {version = "^0.3.1",optional = true}
 
 [tool.poetry.extras]
-all = ["numpy", "jupyter", "sympy", "pandas", "pendulum", "tqdm", "bs4", "requests", "requests_html"]
+all = ["numpy", "jupyter", "sympy", "pandas", "tqdm", "bs4", "requests", "requests_html", "jupyter_qtconsole_colorschemes", "pdir2"]
 math = ["numpy", "jupyter", "sympy", "pandas"]
-others = ["tqdm", "bs4", "requests", "requests_html", "jupyter_qtconsole_colorschemes"]
+others = ["tqdm", "bs4", "requests", "requests_html", "jupyter_qtconsole_colorschemes", "pdir2"]
 
 
 [build-system]
