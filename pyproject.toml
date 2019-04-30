@@ -1,15 +1,16 @@
 [tool.poetry]
 name = "naipyext"
-version = "0.3.3"
+version = "0.4.0"
 description = "Nasy IPython Extensions."
 authors = ["Nasy <nasyxx+python@gmail.com>"]
 license = "GPL-3.0+"
-include = ["poetry.lock", "README.org", "README.html"]
+include = ["README.org"]
 
 [tool.poetry.dependencies]
 python = "^3.6"
 ipython = "^7.2"
 better_exceptions = {git = "https://github.com/Qix-/better-exceptions.git"}
+stackprinter = "^0.1.6"
 pendulum = "^2.0"
 
 requests_html = {version = "^0.9.0",optional = true}
