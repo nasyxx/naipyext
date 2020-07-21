@@ -1,3 +1,16 @@
 * naipyext
 
 Nasy IPython Extensions.
+
+Add
+
+#+begin_src python
+c.InteractiveShellApp.extensions = [
+    "autoreload",
+    "naipyext.autotime",
+    "naipyext.be",
+    "naipyext.ns"
+]
+#+end_src
+
+to ipython config file ~$HOME/.ipython/profile_default/ipython_config.py~
