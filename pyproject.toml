@@ -10,8 +10,9 @@ homepage = "https://github.com/nasyxx/naipyext"
 license = "GPL-v3"
 name = "naipyext"
 python_requires = ">=3.7"
-version = "0.5.1"
+version = "0.5.2"
 include = ["README.org"]
+extras = ["be", "ns", "other", "all"]
 [tool.pdm.dependencies]
 ipython = "*"
 
