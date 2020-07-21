@@ -1,5 +1,6 @@
 # Custom
 poetry.lock
+.pdm.toml
 __pypackages__/
 
 # Created by https://www.gitignore.io/api/python,macOS
