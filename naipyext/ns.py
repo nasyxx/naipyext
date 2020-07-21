@@ -37,9 +37,10 @@ license  : GPL-3.0+
 There are more things in heaven and earth, Horatio, than are dreamt.
  --  From "Hamlet"
 """
+# Others
+from IPython.core.interactiveshell import InteractiveShell
 # Other Packages
 from IPython.utils.importstring import import_item
-from IPython.core.interactiveshell import InteractiveShell
 
 namespaces = {
     "os": "os",

@@ -38,11 +38,40 @@ There are more things in heaven and earth, Horatio, than are dreamt.
  --  From "Hamlet"
 """
 # Standard Library
+import sys
 import time
 
+# Others
 # Other Packages
-from pendulum import duration as dt
 from IPython.core.interactiveshell import InteractiveShell
+
+K = 1000
+G = K * K * K
+M = 60
+H = M * M
+D = H * 24
+YD = 365
+Y = D * YD
+
+
+def duration(ns: int) -> str:
+    """Calculate human readable time string."""
+    return ", ".join(
+        map(
+            lambda nu: f"{nu[0]}{nu[1]}",
+            filter(
+                lambda nu: nu[0] > 0,
+                zip(
+                    map(  # noqa: WPS317
+                        lambda d, m: (ns // d) % m,
+                        (Y * G, D * G, H * G, M * G, G, K * K, K, 1),
+                        (sys.maxsize, YD, 24, 60, 60, K, K, K),
+                    ),
+                    ("y", "d", "m", "h", "s", "ms", "us", "ns"),
+                ),
+            ),
+        )
+    )
 
 
 class Timer:
@@ -53,34 +82,37 @@ class Timer:
     """
 
     def __init__(self) -> None:
-        """Initial timer."""
-        self.perf = 0.0
-        self.cput = 0.0
+        """Initialize timer."""
+        self.perf = 0
+        self.cput = 0
 
     def start(self) -> None:
         """Start timer."""
-        self.perf = time.perf_counter()
-        self.cput = time.process_time()
+        self.perf = time.perf_counter_ns()
+        self.cput = time.process_time_ns()
 
     def stop(self) -> None:
         """Stop timer."""
-        perf = time.perf_counter() - self.perf
-        cput = time.process_time() - self.cput
-        if perf and cput and (perf > 1e-2 or cput > 1e-2):
-            print("Performance:", dt(seconds=perf).in_words())
-            print("Process:", dt(seconds=cput).in_words())
+        cput, perf = (
+            time.process_time_ns() - self.cput,
+            time.perf_counter_ns() - self.perf,
+        )
+        if perf:
+            print("Performance:", duration(perf))
+        if cput:
+            print("Process:", duration(cput))
 
 
 timer = Timer()
 
 
 def load_ipython_extension(ip: InteractiveShell) -> None:
-    "Load timer."
+    """Load timer."""
     ip.events.register("pre_run_cell", timer.start)
     ip.events.register("post_run_cell", timer.stop)
 
 
 def unload_ipython_extension(ip: InteractiveShell) -> None:
-    "Unload timer."
+    """Unload timer."""
     ip.events.unregister("pre_run_cell", timer.start)
     ip.events.unregister("post_run_cell", timer.stop)
