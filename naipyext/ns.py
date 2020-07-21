@@ -39,7 +39,6 @@ There are more things in heaven and earth, Horatio, than are dreamt.
 """
 # Others
 from IPython.core.interactiveshell import InteractiveShell
-# Other Packages
 from IPython.utils.importstring import import_item
 
 namespaces = {
@@ -55,6 +54,7 @@ namespaces = {
     "nlg": "numpy.linalg",
     "req": "requests",
     "s": "requests_html.HTMLSession",
+    "dir": "pdir",
 }
 
 
