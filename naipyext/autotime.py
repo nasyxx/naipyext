@@ -50,8 +50,8 @@ G = K * K * K
 M = 60
 H = M * M
 D = H * 24
-YD = 365
-Y = D * YD
+Y = 365
+YD = D * Y
 
 
 def duration(ns: int) -> str:
@@ -64,10 +64,10 @@ def duration(ns: int) -> str:
                 zip(
                     map(  # noqa: WPS317
                         lambda d, m: (ns // d) % m,
-                        (Y * G, D * G, H * G, M * G, G, K * K, K, 1),
-                        (sys.maxsize, YD, 24, 60, 60, K, K, K),
+                        (YD * G, D * G, H * G, M * G, G, K * K, K, 1),
+                        (sys.maxsize, Y, 24, 60, 60, K, K, K),
                     ),
-                    ("y", "d", "m", "h", "s", "ms", "us", "ns"),
+                    ("y", "d", "h", "m", "s", "ms", "µs", "ns"),
                 ),
             ),
         )
