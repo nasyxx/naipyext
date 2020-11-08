@@ -7,21 +7,21 @@ summary = "A small Python module for determining appropriate platform-specific d
 
 [[package]]
 name = "appnope"
-sections = ["default", "other"]
+sections = ["all", "default", "other"]
 version = "0.1.0"
 marker = "sys_platform == 'darwin' and python_version >= '3.6'"
 summary = "Disable App Nap on OS X 10.9"
 
 [[package]]
 name = "backcall"
-sections = ["default", "other"]
+sections = ["all", "default", "other"]
 version = "0.2.0"
 marker = "python_version >= '3.6'"
 summary = "Specifications for callback functions passed in to an API"
 
 [[package]]
 name = "beautifulsoup4"
-sections = ["all", "ns"]
+sections = ["ns"]
 version = "4.9.1"
 marker = "python_version >= '3.6'"
 summary = "Screen-scraping library"
@@ -40,7 +40,7 @@ colorama = {marker = "sys_platform == 'win32'", version = "*"}
 
 [[package]]
 name = "bs4"
-sections = ["all", "ns"]
+sections = ["ns"]
 version = "0.0.1"
 marker = "python_version >= '3.6'"
 summary = "Screen-scraping library"
@@ -78,21 +78,21 @@ summary = "Python parser for the CommonMark Markdown spec"
 
 [[package]]
 name = "cssselect"
-sections = ["all", "ns"]
+sections = ["ns"]
 version = "1.1.0"
 marker = "python_version >= '3.6'"
 summary = "cssselect parses CSS3 Selectors and translates them to XPath 1.0"
 
 [[package]]
 name = "decorator"
-sections = ["default", "other"]
+sections = ["all", "default", "other"]
 version = "4.4.2"
 marker = "python_version >= '3.6'"
 summary = "Decorators for Humans"
 
 [[package]]
 name = "fake-useragent"
-sections = ["all", "ns"]
+sections = ["ns"]
 version = "0.1.11"
 marker = "python_version >= '3.6'"
 summary = "Up to date simple useragent faker with real world database"
@@ -173,7 +173,7 @@ summary = "Internationalized Domain Names in Applications (IDNA)"
 
 [[package]]
 name = "importlib-metadata"
-sections = ["other"]
+sections = ["all", "other"]
 version = "1.7.0"
 marker = "python_version >= '3.6' and python_version < '3.8'"
 summary = "Read metadata from Python packages"
@@ -183,7 +183,7 @@ zipp = ">=0.5"
 
 [[package]]
 name = "ipython"
-sections = ["default", "other"]
+sections = ["all", "default", "other"]
 version = "7.16.1"
 marker = "python_version >= '3.6'"
 summary = "IPython: Productive Interactive Computing"
@@ -203,14 +203,14 @@ colorama = {marker = "sys_platform == 'win32'", version = "*"}
 
 [[package]]
 name = "ipython-genutils"
-sections = ["default", "other"]
+sections = ["all", "default", "other"]
 version = "0.2.0"
 marker = "python_version >= '3.6'"
 summary = "Vestigial utilities from IPython"
 
 [[package]]
 name = "jedi"
-sections = ["default", "other"]
+sections = ["all", "default", "other"]
 version = "0.17.2"
 marker = "python_version >= '3.6'"
 summary = "An autocompletion tool for Python that can be used for text editors."
@@ -226,7 +226,7 @@ summary = "Color Schemes for Jupyter Qt Console"
 
 [[package]]
 name = "lxml"
-sections = ["all", "ns"]
+sections = ["ns"]
 version = "4.5.2"
 marker = "python_version >= '3.6'"
 summary = "Powerful and Pythonic XML processing library combining libxml2/libxslt with the ElementTree API."
@@ -259,14 +259,14 @@ numpy = ">=1.13.3"
 
 [[package]]
 name = "parse"
-sections = ["all", "ns"]
+sections = ["ns"]
 version = "1.15.0"
 marker = "python_version >= '3.6'"
 summary = "parse() is the opposite of format()"
 
 [[package]]
 name = "parso"
-sections = ["default", "other"]
+sections = ["all", "default", "other"]
 version = "0.7.0"
 marker = "python_version >= '3.6'"
 summary = "A Python Parser"
@@ -293,7 +293,7 @@ pytzdata = ">=2020.1"
 
 [[package]]
 name = "pexpect"
-sections = ["default", "other"]
+sections = ["all", "default", "other"]
 version = "4.8.0"
 marker = "sys_platform != 'win32' and python_version >= '3.6'"
 summary = "Pexpect allows easy control of interactive console applications."
@@ -303,7 +303,7 @@ ptyprocess = ">=0.5"
 
 [[package]]
 name = "pickleshare"
-sections = ["default", "other"]
+sections = ["all", "default", "other"]
 version = "0.7.5"
 marker = "python_version >= '3.6'"
 summary = "Tiny 'shelve'-like database with concurrency support"
@@ -317,7 +317,7 @@ summary = "A drop-in replacement for pprint that's actually pretty"
 
 [[package]]
 name = "prompt-toolkit"
-sections = ["default", "other"]
+sections = ["all", "default", "other"]
 version = "3.0.5"
 marker = "python_full_version >= '3.6.1'"
 summary = "Library for building powerful interactive command lines in Python"
@@ -327,7 +327,7 @@ wcwidth = "*"
 
 [[package]]
 name = "ptipython"
-sections = ["other"]
+sections = ["all", "other"]
 version = "1.0.1"
 marker = "python_version >= '2.7' and python_version not in '3.0, 3.1, 3.2, 3.3'"
 summary = "Metapackage to install ptpython and ipython."
@@ -338,7 +338,7 @@ ptpython = {marker = "python_version >= '3.5'", version = "*"}
 
 [[package]]
 name = "ptpython"
-sections = ["other"]
+sections = ["all", "other"]
 version = "3.0.3"
 marker = "python_version >= '3.6'"
 summary = "Python REPL build on top of prompt_toolkit"
@@ -352,14 +352,14 @@ importlib-metadata = {marker = "python_version < '3.8'", version = "*"}
 
 [[package]]
 name = "ptyprocess"
-sections = ["default", "other"]
+sections = ["all", "default", "other"]
 version = "0.6.0"
 marker = "sys_platform != 'win32' and python_version >= '3.6'"
 summary = "Run a subprocess in a pseudo terminal"
 
 [[package]]
 name = "pyee"
-sections = ["all", "ns"]
+sections = ["ns"]
 version = "7.0.2"
 marker = "python_full_version >= '3.6.1' and python_version < '4.0'"
 summary = "A port of node.js's EventEmitter to python."
@@ -373,7 +373,7 @@ summary = "Pygments is a syntax highlighting package written in Python."
 
 [[package]]
 name = "pyppeteer"
-sections = ["all", "ns"]
+sections = ["ns"]
 version = "0.2.2"
 marker = "python_full_version >= '3.6.1' and python_version < '4.0'"
 summary = "Headless chrome/chromium automation library (unofficial port of puppeteer)"
@@ -387,7 +387,7 @@ websockets = "<9.0,>=8.1"
 
 [[package]]
 name = "pyquery"
-sections = ["all", "ns"]
+sections = ["ns"]
 version = "1.4.1"
 marker = "python_version >= '3.6'"
 summary = "A jquery-like library for python"
@@ -435,7 +435,7 @@ certifi = ">=2017.4.17"
 
 [[package]]
 name = "requests-html"
-sections = ["all", "ns"]
+sections = ["ns"]
 version = "0.10.0"
 marker = "python_version >= '3.6'"
 summary = "HTML Parsing for Humans."
@@ -472,7 +472,7 @@ typing-extensions = "<4.0.0,>=3.7.4"
 
 [[package]]
 name = "setuptools"
-sections = ["default", "other"]
+sections = ["all", "default", "other"]
 version = "49.2.0"
 marker = "python_version >= '3.6'"
 summary = "Easily download, build, install, upgrade, and uninstall Python packages"
@@ -493,7 +493,7 @@ summary = "Sniff out which async library your code is running under"
 
 [[package]]
 name = "soupsieve"
-sections = ["all", "ns"]
+sections = ["ns"]
 version = "1.9.6"
 marker = "python_version >= '3.6'"
 summary = "A modern CSS selector implementation for Beautiful Soup."
@@ -524,7 +524,7 @@ summary = "Fast, Extensible Progress Meter"
 
 [[package]]
 name = "traitlets"
-sections = ["default", "other"]
+sections = ["all", "default", "other"]
 version = "4.3.3"
 marker = "python_version >= '3.6'"
 summary = "Traitlets Python config system"
@@ -550,7 +550,7 @@ summary = "HTTP library with thread-safe connection pooling, file post, and more
 
 [[package]]
 name = "w3lib"
-sections = ["all", "ns"]
+sections = ["ns"]
 version = "1.22.0"
 marker = "python_version >= '3.6'"
 summary = "Library of web-related functions"
@@ -560,21 +560,21 @@ six = ">=1.4.1"
 
 [[package]]
 name = "wcwidth"
-sections = ["default", "other"]
+sections = ["all", "default", "other"]
 version = "0.2.5"
 marker = "python_full_version >= '3.6.1'"
 summary = "Measures the displayed width of unicode strings in a terminal"
 
 [[package]]
 name = "websockets"
-sections = ["all", "ns"]
+sections = ["ns"]
 version = "8.1"
 marker = "python_full_version >= '3.6.1' and python_version < '4.0'"
 summary = "An implementation of the WebSocket Protocol (RFC 6455 & 7692)"
 
 [[package]]
 name = "zipp"
-sections = ["other"]
+sections = ["all", "other"]
 version = "3.1.0"
 marker = "python_version >= '3.6' and python_version < '3.8'"
 summary = "Backport of pathlib-compatible object wrapper for zip files"
@@ -949,6 +949,5 @@ summary = "Backport of pathlib-compatible object wrapper for zip files"
 ]
 
 [root]
-content_hash = "md5:2fbfe8df8d8a8f2d8a2babfa0841122a"
 meta_version = "0.0.1"
-
+content_hash = "md5:b9a8d08339259a357df77845a027591c"

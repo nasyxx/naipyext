@@ -42,19 +42,18 @@ from IPython.core.interactiveshell import InteractiveShell
 from IPython.utils.importstring import import_item
 
 namespaces = {
+    "chain": "itertools.chain",
+    "dir": "pdir",
+    "httpx": "httpx",
+    "nlg": "numpy.linalg",
+    "np": "numpy",
     "os": "os",
-    "sys": "sys",
+    "pd": "pandas",
     "random": "random",
     "re": "re",
-    "chain": "itertools.chain",
-    "pendulum": "pendulum",
+    "req": "httpx",
+    "sys": "sys",
     "time": "time",
-    "pd": "pandas",
-    "np": "numpy",
-    "nlg": "numpy.linalg",
-    "req": "requests",
-    "s": "requests_html.HTMLSession",
-    "dir": "pdir",
 }
 
 

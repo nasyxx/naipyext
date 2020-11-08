@@ -10,7 +10,7 @@ homepage = "https://github.com/nasyxx/naipyext"
 license = "GPL-v3"
 name = "naipyext"
 python_requires = ">=3.7"
-version = "0.5.3"
+version = "0.6.0"
 include = ["README.md"]
 extras = ["be", "ns", "other", "all"]
 [tool.pdm.dependencies]
@@ -21,40 +21,30 @@ ipython = "*"
 [tool.pdm.be-dependencies]
 better_exceptions = "*"
 
-[tool.pdm.sp-dependencies]
-stackprinter = "*"
-
 [tool.pdm.ns-dependencies]
+httpx = "*"
 numpy = "*"
 pandas = "*"
 pdir2 = "*"
-pendulum = "*"
-requests = "*"
-requests_html = "*"
 tqdm = "*"
 
 [tool.pdm.other-dependencies]
 httpx = "*"
 jupyter_qtconsole_colorschemes = "*"
-ptipython = "*"
+pendulum = "*"
+ptpython = "*"
 rich = "*"
 sympy = "*"
 
 [tool.pdm.all-dependencies]
 better_exceptions = "*"
-
-stackprinter = "*"
-
+httpx = "*"
+jupyter_qtconsole_colorschemes = "*"
 numpy = "*"
 pandas = "*"
 pdir2 = "*"
 pendulum = "*"
-requests = "*"
-requests_html = "*"
-tqdm = "*"
-
-httpx = "*"
-jupyter_qtconsole_colorschemes = "*"
-ptipython = "*"
+ptpython = "*"
 rich = "*"
 sympy = "*"
+tqdm = "*"
