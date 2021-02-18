@@ -73,7 +73,7 @@ def load_ipython_extension(ip: InteractiveShell) -> None:
             [filename, tb_offset, exception_only, issubclass(etype, SyntaxError)]
         )
         if use_better:
-            return print(better_exceptions.format_exception(etype, value, tb))
+            return print(*better_exceptions.format_exception(etype, value, tb), sep="")
 
         return old_show_tb(
             None if notuple else exc_tuple,
