@@ -1,6 +1,6 @@
 [build-system]
-build-backend = "pdm.builders.api"
-requires = ["pdm"]
+requires = ["pdm-pep517"]
+build-backend = "pdm.pep517.api"
 
 [tool]
 [tool.pdm]
@@ -10,7 +10,7 @@ homepage = "https://github.com/nasyxx/naipyext"
 license = "GPL-v3"
 name = "naipyext"
 python_requires = ">=3.7"
-version = "0.6.0"
+version = "0.7.0"
 include = ["README.md"]
 extras = ["be", "ns", "other", "all"]
 [tool.pdm.dependencies]
@@ -48,3 +48,30 @@ ptpython = "*"
 rich = "*"
 sympy = "*"
 tqdm = "*"
+
+[project]
+# PEP 621 project metadata
+# See https://www.python.org/dev/peps/pep-0621/
+authors = [
+    {name = "Nasy", email = "nasyxx+python@gmail.com"},
+]
+version = "0.7.0"
+dynamic = ["classifiers"]
+requires-python = ">=3.7"
+license = {text = "GPL-v3"}
+dependencies = [
+    "ipython",
+]
+dev-dependencies = []
+description = "Nasy IPython Extensions."
+name = "naipyext"
+include = ["README.md"]
+
+[project.urls]
+homepage = "https://github.com/nasyxx/naipyext"
+
+[project.optional-dependencies]
+be = ["better-exceptions"]
+ns = ["httpx", "numpy", "pandas", "pdir2", "tqdm"]
+other = ["httpx", "jupyter-qtconsole-colorschemes", "pendulum", "ptpython", "rich", "sympy"]
+all = ["better-exceptions", "httpx", "jupyter-qtconsole-colorschemes", "numpy", "pandas", "pdir2", "pendulum", "ptpython", "rich", "sympy", "tqdm"]
