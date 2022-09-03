@@ -2,76 +2,93 @@
 requires = ["pdm-pep517"]
 build-backend = "pdm.pep517.api"
 
-[tool]
-[tool.pdm]
-author = "Nasy <nasyxx+python@gmail.com>"
-description = "Nasy IPython Extensions."
-homepage = "https://github.com/nasyxx/naipyext"
-license = "GPL-v3"
-name = "naipyext"
-python_requires = ">=3.7"
-version = "0.7.0"
-include = ["README.md"]
-extras = ["be", "ns", "other", "all"]
-[tool.pdm.dependencies]
-ipython = "*"
-
-[tool.pdm.dev-dependencies]
-
-[tool.pdm.be-dependencies]
-better_exceptions = "*"
-
-[tool.pdm.ns-dependencies]
-httpx = "*"
-numpy = "*"
-pandas = "*"
-pdir2 = "*"
-tqdm = "*"
-
-[tool.pdm.other-dependencies]
-httpx = "*"
-jupyter_qtconsole_colorschemes = "*"
-pendulum = "*"
-ptpython = "*"
-rich = "*"
-sympy = "*"
-
-[tool.pdm.all-dependencies]
-better_exceptions = "*"
-httpx = "*"
-jupyter_qtconsole_colorschemes = "*"
-numpy = "*"
-pandas = "*"
-pdir2 = "*"
-pendulum = "*"
-ptpython = "*"
-rich = "*"
-sympy = "*"
-tqdm = "*"
-
 [project]
 # PEP 621 project metadata
 # See https://www.python.org/dev/peps/pep-0621/
 authors = [
     {name = "Nasy", email = "nasyxx+python@gmail.com"},
 ]
-version = "0.7.0"
+version = "0.8.0"
 dynamic = ["classifiers"]
-requires-python = ">=3.7"
+requires-python = ">=3.9,<3.11"
 license = {text = "GPL-v3"}
 dependencies = [
     "ipython",
 ]
-dev-dependencies = []
 description = "Nasy IPython Extensions."
 name = "naipyext"
-include = ["README.md"]
 
 [project.urls]
 homepage = "https://github.com/nasyxx/naipyext"
 
 [project.optional-dependencies]
-be = ["better-exceptions"]
+be = ["rich"]
 ns = ["httpx", "numpy", "pandas", "pdir2", "tqdm"]
 other = ["httpx", "jupyter-qtconsole-colorschemes", "pendulum", "ptpython", "rich", "sympy"]
-all = ["better-exceptions", "httpx", "jupyter-qtconsole-colorschemes", "numpy", "pandas", "pdir2", "pendulum", "ptpython", "rich", "sympy", "tqdm"]
+all = ["httpx", "jupyter-qtconsole-colorschemes", "numpy", "pandas", "pdir2", "pendulum", "ptpython", "rich", "sympy", "tqdm"]
+
+[tool.pdm.build]
+includes = [
+         "README.md"
+]
+
+[tool.mypy]
+python_executable = "python"
+ignore_missing_imports = true
+exclude = [
+  "__pypackages__/",
+]
+
+[tool.isort]
+
+profile = "black"
+group_by_package = true
+color_output = true
+combine_straight_imports = true
+
+
+import_heading_stdlib = "Standard Library"
+
+
+known_db = ["lucene", "lupyne", "elasticsearch", "sqlite", "shelve"]
+import_heading_db = "Database"
+
+known_tf = ["tensorflow", "keras"]
+import_heading_tf = "Tensorflow"
+
+known_torch = ["torch", "torchdata", "torchvision", "pytorch_lightning"]
+import_heading_torch = "Torch"
+
+known_types = ["typing", "types"]
+import_heading_types = "Types"
+
+known_config = ["config", "settings", "cfg", "smile_config"]
+import_heading_config = "Config"
+
+known_math = ["numpy", "scipy", "sklearn", "pandas"]
+import_heading_math = "Math"
+
+import_heading_thirdparty = "Others"
+
+import_heading_localfolder = "Local"
+known_localfolder = ["sites", "src"]
+
+import_heading_utils = "Utils"
+known_utils = ["tqdm", "rich"]
+
+sections = ["FUTURE", "FIRSTPARTY", "STDLIB", "UTILS", "DB", "MATH", "TF", "TORCH", "CONFIG", "TYPES", "THIRDPARTY", "LOCALFOLDER"]
+
+
+[tool.pyright]
+pythonVersion = "3.10"
+extraPaths = [
+    "__pypackages__/3.9/lib",
+    "__pypackages__/3.10/lib",
+]
+
+exclude = [
+    "**/__pycache__",
+]
+reportMissingTypeStubs = "information"
+
+useLibraryCodeForTypes = true

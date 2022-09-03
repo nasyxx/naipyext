@@ -1,9 +1,10 @@
+
 # Table of Contents
 
-1.  [naipyext](#orgbe974f9)
+1.  [naipyext](#org4b8b3b8)
 
 
-<a id="orgbe974f9"></a>
+<a id="org4b8b3b8"></a>
 
 # naipyext
 
@@ -15,7 +16,9 @@ Add
         "autoreload",
         "naipyext.autotime",
         "naipyext.be",
-        "naipyext.ns"
+        "naipyext.ns",
+        "naxpyext.pt"
     ]
 
 to ipython config file `$HOME/.ipython/profile_default/ipython_config.py`
+

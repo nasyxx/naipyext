@@ -37,50 +37,19 @@ license  : GPL-3.0+
 There are more things in heaven and earth, Horatio, than are dreamt.
  --  From "Hamlet"
 """
-# Standard Library
-import sys
-import types
-from typing import Any, Tuple, Optional
-
-# Other Packages
+# Others
 from IPython.core.interactiveshell import InteractiveShell
 
 try:
-    import better_exceptions
+    # Utils
+    import rich
+    from rich.traceback import install as install
 except ImportError:
-    print("pip install better_exceptions in need.")
-    better_exceptions = None
+    print("Cannot find package 'rich'.")
+    rich = None
 
 
 def load_ipython_extension(ip: InteractiveShell) -> None:
     """Load extension."""
-    old_show_tb = ip.showtraceback
-
-    def exception_thunk(
-        self,
-        exc_tuple: Tuple[Any, ...] = None,
-        filename: Optional[str] = None,
-        tb_offset: Optional[int] = None,
-        exception_only: bool = False,
-        **kwargs: Any
-    ):
-        notuple = False
-        if exc_tuple is None:
-            notuple = True
-            exc_tuple = sys.exc_info()
-        etype, value, tb = self._get_exc_info(exc_tuple)
-        use_better = not any(
-            [filename, tb_offset, exception_only, issubclass(etype, SyntaxError)]
-        )
-        if use_better:
-            return print(*better_exceptions.format_exception(etype, value, tb), sep="")
-
-        return old_show_tb(
-            None if notuple else exc_tuple,
-            filename,
-            tb_offset,
-            exception_only,
-            **kwargs
-        )
-
-    ip.showtraceback = types.MethodType(exception_thunk, ip)
+    if rich:
+        install()

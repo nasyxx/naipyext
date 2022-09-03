@@ -30,7 +30,7 @@ Excited without bugs::
 author   : Nasy https://nasy.moe
 date     : Feb 18, 2019
 email    : Nasy <nasyxx+python@gmail.com>
-filename : ns.py
+filename : pt.py
 project  : naipyext
 license  : GPL-3.0+
 
@@ -39,27 +39,27 @@ There are more things in heaven and earth, Horatio, than are dreamt.
 """
 # Others
 from IPython.core.interactiveshell import InteractiveShell
-from IPython.utils.importstring import import_item
 
-namespaces = {
-    "chain": "itertools.chain",
-    "dir": "pdir",
-    "httpx": "httpx",
-    "nlg": "numpy.linalg",
-    "np": "numpy",
-    "os": "os",
-    "pd": "pandas",
-    "random": "random",
-    "re": "re",
-    "req": "httpx",
-    "sys": "sys",
-    "time": "time",
-    "print": "rich.print"
-}
+try:
+    # Utils
+    import rich
+    from rich.pretty import install
+except ImportError:
+    print("Cannot find package 'rich'.")
+    rich = None
+
+
+try:
+    # Math
+    import numpy as np
+except ImportError:
+    print("Cannot find package 'numpy'.")
+    np = None
 
 
 def load_ipython_extension(ip: InteractiveShell) -> None:
-    """Load ipython extension."""
-    ns = ip.user_ns
-    for k, v in namespaces.items():
-        ns[k] = import_item(v)
+    """Load extension."""
+    if rich:
+        install(max_length=10)
+    if np:
+        np.set_printoptions(threshold=50)

@@ -5,12 +5,13 @@ Nasy IPython Extensions.
 Add
 
 #+begin_src python
-c.InteractiveShellApp.extensions = [
-    "autoreload",
-    "naipyext.autotime",
-    "naipyext.be",
-    "naipyext.ns"
-]
+  c.InteractiveShellApp.extensions = [
+      "autoreload",
+      "naipyext.autotime",
+      "naipyext.be",
+      "naipyext.ns",
+      "naxpyext.pt"
+  ]
 #+end_src
 
 to ipython config file ~$HOME/.ipython/profile_default/ipython_config.py~
