@@ -60,6 +60,6 @@ except ImportError:
 def load_ipython_extension(ip: InteractiveShell) -> None:
     """Load extension."""
     if rich:
-        install(max_length=10)
+        install()
     if np:
         np.set_printoptions(threshold=50)

@@ -52,4 +52,4 @@ except ImportError:
 def load_ipython_extension(ip: InteractiveShell) -> None:
     """Load extension."""
     if rich:
-        install()
+        install(max_frames=20, extra_lines=5, show_locals=True)
