@@ -85,6 +85,7 @@ class Timer:
         """Initialize timer."""
         self.perf = 0
         self.cput = 0
+        self.print = True
 
     def start(self) -> None:
         """Start timer."""
@@ -97,9 +98,9 @@ class Timer:
             time.process_time_ns() - self.cput,
             time.perf_counter_ns() - self.perf,
         )
-        if perf:
+        if self.print and perf:
             print("Performance:", duration(perf))
-        if cput:
+        if self.print and cput:
             print("Process:", duration(cput))
 
 
@@ -108,11 +109,13 @@ timer = Timer()
 
 def load_ipython_extension(ip: InteractiveShell) -> None:
     """Load timer."""
+    timer.print = True
     ip.events.register("pre_run_cell", timer.start)
     ip.events.register("post_run_cell", timer.stop)
 
 
 def unload_ipython_extension(ip: InteractiveShell) -> None:
     """Unload timer."""
+    timer.print = False
     ip.events.unregister("pre_run_cell", timer.start)
     ip.events.unregister("post_run_cell", timer.stop)
