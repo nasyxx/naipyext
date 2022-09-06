@@ -38,11 +38,9 @@ There are more things in heaven and earth, Horatio, than are dreamt.
  --  From "Hamlet"
 """
 # Standard Library
-import sys
-import time
+import sys, time
 
 # Others
-# Other Packages
 from IPython.core.interactiveshell import InteractiveShell
 
 K = 1000
