@@ -8,7 +8,7 @@ build-backend = "pdm.pep517.api"
 authors = [
     {name = "Nasy", email = "nasyxx+python@gmail.com"},
 ]
-version = "0.8.2"
+version = "0.8.3"
 dynamic = ["classifiers"]
 requires-python = ">=3.9,<3.11"
 license = {text = "GPL-v3"}
@@ -29,7 +29,8 @@ all = ["httpx", "jupyter-qtconsole-colorschemes", "numpy", "pandas", "pdir2", "p
 
 [tool.pdm.build]
 includes = [
-         "README.md"
+  "README.md",
+  "naipyext"
 ]
 
 [tool.mypy]
