@@ -41,24 +41,26 @@ There are more things in heaven and earth, Horatio, than are dreamt.
 from IPython.core.interactiveshell import InteractiveShell
 from IPython.utils.importstring import import_item
 
-namespaces = {
-    "chain": "itertools.chain",
-    "dir": "pdir",
-    "httpx": "httpx",
-    "nlg": "numpy.linalg",
-    "np": "numpy",
-    "os": "os",
-    "pd": "pandas",
-    "random": "random",
-    "re": "re",
-    "req": "httpx",
-    "sys": "sys",
-    "time": "time",
-}
-
 
 def load_ipython_extension(ip: InteractiveShell) -> None:
     """Load ipython extension."""
+    namespaces = {
+        "chain": "itertools.chain",
+        "dir": "pdir",
+        "httpx": "httpx",
+        "nlg": "numpy.linalg",
+        "np": "numpy",
+        "os": "os",
+        "pd": "pandas",
+        "random": "random",
+        "re": "re",
+        "req": "httpx",
+        "sys": "sys",
+        "time": "time",
+    }
     ns = ip.user_ns
     for k, v in namespaces.items():
-        ns[k] = import_item(v)
+        try:
+            ns[k] = import_item(v)
+        except ImportError:
+            print(f"Cannot import {v}.")
