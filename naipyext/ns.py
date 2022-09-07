@@ -54,7 +54,6 @@ namespaces = {
     "req": "httpx",
     "sys": "sys",
     "time": "time",
-    "print": "rich.print"
 }
 
 
