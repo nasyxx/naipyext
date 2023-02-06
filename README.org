@@ -10,7 +10,7 @@ Add
       "naipyext.autotime",
       "naipyext.be",
       "naipyext.ns",
-      "naxpyext.pt"
+      "naipyext.pt"
   ]
 #+end_src
 
