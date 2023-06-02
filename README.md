@@ -1,14 +1,22 @@
 
 # Table of Contents
 
-1.  [naipyext](#orgada84a5)
+1.  [naipyext](#orgcf318c9)
+    1.  [Install](#orgdfcb1ab)
 
 
-<a id="orgada84a5"></a>
+<a id="orgcf318c9"></a>
 
 # naipyext
 
 Nasy IPython Extensions.
+
+
+<a id="orgdfcb1ab"></a>
+
+## Install
+
+    python -m install "naipyext[all]"
 
 Add
 

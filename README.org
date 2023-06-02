@@ -2,6 +2,12 @@
 
 Nasy IPython Extensions.
 
+** Install
+
+#+begin_src shell
+  python -m install "naipyext[all]"
+#+end_src
+
 Add
 
 #+begin_src python
