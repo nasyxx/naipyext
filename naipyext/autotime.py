@@ -85,12 +85,12 @@ class Timer:
         self.cput = 0
         self.print = True
 
-    def start(self) -> None:
+    def start(self, *_) -> None:
         """Start timer."""
         self.perf = time.perf_counter_ns()
         self.cput = time.process_time_ns()
 
-    def stop(self) -> None:
+    def stop(self, *_) -> None:
         """Stop timer."""
         cput, perf = (
             time.process_time_ns() - self.cput,
