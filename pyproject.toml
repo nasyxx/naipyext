@@ -8,7 +8,7 @@ build-backend = "pdm.pep517.api"
 authors = [
     {name = "Nasy", email = "nasyxx+python@gmail.com"},
 ]
-version = "0.9.0"
+version = "0.10.0"
 dynamic = ["classifiers"]
 requires-python = ">=3.9"
 license = {text = "GPL-v3"}
@@ -24,8 +24,8 @@ homepage = "https://github.com/nasyxx/naipyext"
 [project.optional-dependencies]
 be = ["rich"]
 ns = ["httpx", "numpy", "pandas", "pdir2", "tqdm"]
-other = ["httpx", "jupyter-qtconsole-colorschemes", "pendulum", "ptpython", "rich", "sympy"]
-all = ["httpx", "jupyter-qtconsole-colorschemes", "numpy", "pandas", "pdir2", "pendulum", "ptpython", "rich", "sympy", "tqdm"]
+other = ["httpx", "jupyter-qtconsole-colorschemes", "ptpython", "rich", "sympy"]
+all = ["httpx", "jupyter-qtconsole-colorschemes", "numpy", "pandas", "pdir2", "ptpython", "rich", "sympy", "tqdm"]
 
 [tool.pdm.build]
 includes = [
@@ -85,6 +85,7 @@ pythonVersion = "3.10"
 extraPaths = [
     "__pypackages__/3.9/lib",
     "__pypackages__/3.10/lib",
+    "__pypackages__/3.11/lib",
 ]
 
 exclude = [
